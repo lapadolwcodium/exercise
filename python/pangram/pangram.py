@@ -1,2 +1,3 @@
 def is_pangram(sentence):
-    pass
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    return not (set(alphabet) - set(sentence.lower()))

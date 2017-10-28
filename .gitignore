@@ -8,3 +8,5 @@
 *.lock
 
 python/isogram/Pipfile
+
+python/pangram/Pipfile
