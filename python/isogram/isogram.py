@@ -1,3 +1,6 @@
+from functional import seq
+
+
 def is_isogram(string):
     is_pass = False
 
@@ -16,22 +19,30 @@ def is_isogram(string):
             is_pass = False
             break
 
-    duplicate_none = False
-    duplicate_nor = False
-    newString = string.lower()
-    validNonLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    is_dup_none = False
+    is_dup_char = False
 
-    for cc in newString:
-        if cc not in validNonLetters:  #
-            if newString.count(cc) > 1:
-                is_pass = True
-                duplicate_none = True
-        else:
-            if newString.count(cc) > 1:
-                is_pass = False
-                duplicate_nor = True
+    new_string_lower = string.lower()
+    char_list = list(new_string_lower)
+    valid_non_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-    if duplicate_nor and duplicate_none:
+    dup_char = seq(char_list) \
+        .where(lambda x: new_string_lower.count(x) > 1) \
+        .select(lambda s: s) \
+        .distinct() \
+        .to_list()
+
+    if len(dup_char) > 0:
+        char_dup_char = list(dup_char)
+        is_dup_char = seq(char_dup_char) \
+            .where(lambda x: x in valid_non_letters) \
+            .any()
+
+        is_pass = is_dup_none = seq(char_dup_char) \
+            .where(lambda x: x not in valid_non_letters) \
+            .any()
+ 
+    if is_dup_char and is_dup_none:
         is_pass = False
 
     return is_pass
