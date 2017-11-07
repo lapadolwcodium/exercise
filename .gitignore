@@ -12,3 +12,5 @@ python/isogram/Pipfile
 python/pangram/Pipfile
 
 python/rna-transcription/Pipfile
+
+python/rotational-cipher/Pipfile
