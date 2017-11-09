@@ -8,7 +8,7 @@ def hey(phrase):
     if phrase.replace(" ", "").endswith('?'):
         return "Sure."
 
-    if re.search('[a-zA-Z0-9]', phrase):
+    if re.search('[\w]+', phrase):
         return "Whatever."
 
     return "Fine. Be that way!"
