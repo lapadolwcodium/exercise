@@ -1,7 +1,7 @@
 import re
 
 
-def hey(phrase):
+def hey(phrase : string):
     if phrase.isupper():
         return "Whoa, chill out!"
 
