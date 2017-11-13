@@ -14,3 +14,5 @@ python/pangram/Pipfile
 python/rna-transcription/Pipfile
 
 python/rotational-cipher/Pipfile
+
+python/meetup/Pipfile
